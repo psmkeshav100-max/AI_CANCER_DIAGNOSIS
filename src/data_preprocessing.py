@@ -1,8 +1,6 @@
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-
-
 # 1. Train-test split
 def preprocess_data(X, y):
     test_size = 0.2

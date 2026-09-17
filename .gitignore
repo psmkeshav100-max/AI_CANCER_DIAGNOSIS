@@ -1,19 +1,8 @@
-# Virtual environment
-venv/
-
-# Python cache
 __pycache__/
-*.py[cod]
-
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints/
-
-# VS Code
-.vscode/
-
-# Environment variables
+*.pyc
+.venv/
+venv/
 .env
-
-# OS files
+.vscode/
+.ipynb_checkpoints/
 .DS_Store
-Thumbs.db
