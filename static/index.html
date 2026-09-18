@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Cancer Diagnosis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+```
+<div class="container">
+
+    <div class="header">
+        <h1>🔬 AI Cancer Diagnosis</h1>
+        <p>Breast Cancer Prediction using Machine Learning</p>
+    </div>
+
+    <div class="card">
+
+        <h2>Enter Patient Measurements</h2>
+        <p class="description">
+            Enter the 30 measurements used by the trained Random Forest model.
+        </p>
+
+        <form id="predictionForm">
+
+            <div class="input-grid">
+
+                <div class="input-group">
+                    <label>Mean Radius</label>
+                    <input type="number" step="any" id="mean_radius" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Mean Texture</label>
+                    <input type="number" step="any" id="mean_texture" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Mean Perimeter</label>
+                    <input type="number" step="any" id="mean_perimeter" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Mean Area</label>
+                    <input type="number" step="any" id="mean_area" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Mean Smoothness</label>
+                    <input type="number" step="any" id="mean_smoothness" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Mean Compactness</label>
+                    <input type="number" step="any" id="mean_compactness" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Mean Concavity</label>
+                    <input type="number" step="any" id="mean_concavity" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Mean Concave Points</label>
+                    <input type="number" step="any" id="mean_concave_points" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Mean Symmetry</label>
+                    <input type="number" step="any" id="mean_symmetry" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Mean Fractal Dimension</label>
+                    <input type="number" step="any" id="mean_fractal_dimension" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Radius Error</label>
+                    <input type="number" step="any" id="radius_error" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Texture Error</label>
+                    <input type="number" step="any" id="texture_error" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Perimeter Error</label>
+                    <input type="number" step="any" id="perimeter_error" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Area Error</label>
+                    <input type="number" step="any" id="area_error" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Smoothness Error</label>
+                    <input type="number" step="any" id="smoothness_error" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Compactness Error</label>
+                    <input type="number" step="any" id="compactness_error" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Concavity Error</label>
+                    <input type="number" step="any" id="concavity_error" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Concave Points Error</label>
+                    <input type="number" step="any" id="concave_points_error" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Symmetry Error</label>
+                    <input type="number" step="any" id="symmetry_error" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Fractal Dimension Error</label>
+                    <input type="number" step="any" id="fractal_dimension_error" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Worst Radius</label>
+                    <input type="number" step="any" id="worst_radius" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Worst Texture</label>
+                    <input type="number" step="any" id="worst_texture" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Worst Perimeter</label>
+                    <input type="number" step="any" id="worst_perimeter" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Worst Area</label>
+                    <input type="number" step="any" id="worst_area" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Worst Smoothness</label>
+                    <input type="number" step="any" id="worst_smoothness" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Worst Compactness</label>
+                    <input type="number" step="any" id="worst_compactness" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Worst Concavity</label>
+                    <input type="number" step="any" id="worst_concavity" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Worst Concave Points</label>
+                    <input type="number" step="any" id="worst_concave_points" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Worst Symmetry</label>
+                    <input type="number" step="any" id="worst_symmetry" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Worst Fractal Dimension</label>
+                    <input type="number" step="any" id="worst_fractal_dimension" required>
+                </div>
+
+            </div>
+
+            <button type="submit" id="predictButton">
+                Predict Diagnosis
+            </button>
+
+        </form>
+
+        <div id="loading" class="loading hidden">
+            Making prediction...
+        </div>
+
+        <div id="result" class="result hidden">
+            <h2>Prediction Result</h2>
+
+            <div class="diagnosis" id="diagnosis"></div>
+
+            <div class="probabilities">
+                <div>
+                    <span>Malignant</span>
+                    <strong id="malignantProbability"></strong>
+                </div>
+
+                <div>
+                    <span>Benign</span>
+                    <strong id="benignProbability"></strong>
+                </div>
+            </div>
+        </div>
+
+        <div id="error" class="error hidden"></div>
+
+    </div>
+
+    <footer>
+        <p>AI Cancer Diagnosis • Random Forest Machine Learning Model</p>
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+```
+
+</body>
+</html>
