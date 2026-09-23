@@ -3,8 +3,10 @@ import joblib
 import pandas as pd
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from sklearn.datasets import load_breast_cancer
+from fastapi.middleware.cors import CORSMiddleware
 
 # Project Paths
 
@@ -34,7 +36,14 @@ app = FastAPI(
     ),
     version="1.0.0",
 )
-
+app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://127.0.0.1:8000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # Input Data Model
 
 class PatientData(BaseModel):
