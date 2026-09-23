@@ -2,6 +2,7 @@ from pathlib import Path
 import joblib
 import pandas as pd
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 from sklearn.datasets import load_breast_cancer
 
@@ -51,11 +52,7 @@ class PatientData(BaseModel):
 
 @app.get("/", tags=["General"])
 def home():
-    return {
-        "message": "AI Cancer Diagnosis API is running!",
-        "status": "active",
-        "version": "1.0.0",
-    }
+    return FileResponse(BASE_DIR / "static" / "index.html")
 
 # Health Check Route
 
